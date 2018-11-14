@@ -2,7 +2,7 @@ namespace: Integrations.demo.aos.sub_flows
 flow:
   name: remote_copy
   inputs:
-    - host: 169.254.10.117
+    - host: 10.0.46.93
     - username: root
     - password: admin@123
     - url: 'http://vmdocker.hcm.demo.local:36980/job/AOS-repo/ws/install_java.sh'
@@ -31,7 +31,7 @@ flow:
           io.cloudslang.base.remote_file_transfer.remote_secure_copy:
             - source_path: '${filename}'
             - destination_host: '${host}'
-            - destination_path: /tmp
+            - destination_path: "${get_sp('script_location')}"
             - destination_username: '${username}'
             - destination_password:
                 value: '${password}'
